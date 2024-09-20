@@ -58,7 +58,7 @@ export default function Home() {
             </div>
             <div className="flex justify-end items-center gap-5">
 
-              <button type="submit" className="bg-purple-400 hover:bg-purple-500 transition duration-300 w-max px-6 py-2 rounded-md text-white text-sm font-normal mt-3 flex justify-center items-center gap-2">
+              <button type="submit" className="bg-purple-400 hover:bg-purple-500 transition duration-300 w-max px-6 py-2 rounded-md text-white text-sm font-normal mt-3 flex justify-center items-center gap-2 me-7">
                 <FontAwesomeIcon icon={faRightToBracket} />
                 Iniciar sesión
               </button>
