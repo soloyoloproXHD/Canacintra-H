@@ -44,7 +44,7 @@ export default function NavPath (){
                 </ul>
               </div>
               <div className="flex items-center justify-center">
-                <p className="text-center text-l950">Juan Pedro Pedraza Leal</p>
+                <p className="text-center text-l900 font-semibold hover: hover:text-l950">Juan Pedro Pedraza Leal</p>
               </div>
             </div>
           </div>

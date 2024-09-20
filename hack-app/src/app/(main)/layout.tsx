@@ -14,8 +14,8 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body>
+    <html lang="es" >
+      <body data-theme="cupcake" className="h-screen">
         <NavPath/>
         {children}
       </body>
