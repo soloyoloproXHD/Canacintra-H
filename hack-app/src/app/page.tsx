@@ -119,7 +119,7 @@ export default function Home() {
           </div>
           <div className="absolute top-0 right-0 transform translate-x-[1rem] -translate-y-[55rem] rounded-full w-[25rem] h-9 bg-purple-500 -rotate-45">
           </div>
-          <div className="absolute top-0 right-0 transform translate-x-[44rem] -translate-y-[55rem] rounded-full w-[60rem] h-9 bg-purple-500 -rotate-45">
+          <div className="absolute top-0 right-0 transform translate-x-[51rem] -translate-y-[55rem] rounded-full w-[75rem] h-9 bg-purple-500 -rotate-45">
           </div>
         </div>
       </div>
