@@ -35,12 +35,8 @@ export default function NavPath (){
                 >
                   <li>
                     <a className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
+                      Perfil
                     </a>
-                  </li>
-                  <li>
-                    <a>Settings</a>
                   </li>
                   <li>
                     <a>Cerrar Sesión</a>
