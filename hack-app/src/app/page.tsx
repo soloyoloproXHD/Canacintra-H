@@ -17,7 +17,7 @@ export default function Home() {
     <div className="flex justify-between items-center w-full min-h-screen overflow-x-hidden overflow-y-hidden" data-theme="cupcake">
       <div className="w-1/3 p-10">
         <div className="max-w-md relative flex flex-col p-4 rounded-md text-black ">
-          <div className="text-2xl font-bold mb-10 text-[#1e0e4b] text-center">
+          <div className="text-2xl font-bold mb-14 text-[#1e0e4b] text-center">
             Inicio de sesión
           </div>
           <form className="flex flex-col gap-3">
@@ -118,6 +118,8 @@ export default function Home() {
           <div className="absolute top-0 right-0 transform translate-x-[13rem] -translate-y-[55rem] rounded-full w-[40rem] h-10 bg-purple-400 -rotate-45">
           </div>
           <div className="absolute top-0 right-0 transform translate-x-[1rem] -translate-y-[55rem] rounded-full w-[25rem] h-9 bg-purple-500 -rotate-45">
+          </div>
+          <div className="absolute top-0 right-0 transform translate-x-[44rem] -translate-y-[55rem] rounded-full w-[60rem] h-9 bg-purple-500 -rotate-45">
           </div>
         </div>
       </div>
