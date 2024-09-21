@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBook, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 import "../globals.css";
 
 interface SidebarProps {
@@ -17,7 +18,7 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
       </button>
 
       {/* Sidebar que aparece justo debajo del navbar */}
-      <div className={`fixed top-[67px] left-0 h-full w-52 bg-l100 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 z-20`}>
+      <div className={`fixed top-[67px] left-0 h-[calc(100vh-67px)] w-52 bg-l100 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 z-20 overflow-y-auto`}>
         <div
           className="absolute inset-0"
           aria-label="close sidebar"
@@ -25,11 +26,16 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
           style={{ display: isOpen ? 'block' : 'none' }}
         />
 
-        <ul className="menu text-base-content p-4">
-          <li><a href="#">Grupos</a></li>
-          <li><a href="#">Materias</a></li>
-          <li>
-            <button onClick={toggleSidebar} className="cursor-pointer">Cerrar</button>
+        {/* Flex para colocar "Cerrar" en la parte inferior */}
+        <ul className="menu text-base-content p-4 flex flex-col h-full">
+          <li><a href="#"><FontAwesomeIcon icon={faUserGroup} /> Grupos</a></li>
+          <li><a href="#"><FontAwesomeIcon icon={faBook} /> Materias</a></li>
+
+          {/* Empuja "Cerrar" hacia abajo */}
+          <li className="mt-auto mb-0">
+            <button onClick={toggleSidebar} className="cursor-pointer">
+              <FontAwesomeIcon icon={faX} /> Cerrar
+            </button>
           </li>
         </ul>
       </div>
