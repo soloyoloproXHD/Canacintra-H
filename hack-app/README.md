@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Adaptia
 
-## Getting Started
+## Descripción
 
-First, run the development server:
+Este proyecto aborda el problema del rezago educativo en la educación básica en México, causado en parte por la diversidad de estilos de aprendizaje entre los estudiantes. La plataforma permite a los docentes subir y gestionar los datos de sus alumnos, utilizando Inteligencia Artificial (IA) para identificar los estilos de aprendizaje (visual, auditivo, kinestésico, entre otros) y generar planes de estudio individualizados.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+El objetivo es proporcionar una herramienta fácil de usar, accesible desde cualquier dispositivo, que apoye a los docentes en la creación de actividades y planes de clase personalizados, asegurando una enseñanza más inclusiva y efectiva.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Problemática
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+El enfoque generalizado de las clases tradicionales no se adapta a las necesidades individuales de los estudiantes, lo que contribuye al rezago educativo. Esta plataforma busca resolver este problema mediante la personalización de la enseñanza.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Solución
 
-## Learn More
+La plataforma web utiliza IA para analizar los datos de los estudiantes y crear planes de clase adaptados a sus estilos de aprendizaje. Los docentes pueden ingresar materias, tipos de enseñanza y temas para recibir sugerencias automatizadas que optimizan la experiencia educativa.
 
-To learn more about Next.js, take a look at the following resources:
+## Características
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Personalización de la enseñanza:** Adapta los planes de clase al estilo de aprendizaje de cada estudiante.
+- **Integración de Inteligencia Artificial:** Genera sugerencias personalizadas para cada estudiante.
+- **Interfaz amigable y accesible:** Optimizada para dispositivos móviles y de escritorio.
+- **Compatibilidad con varios estilos de aprendizaje:** Apoyo para enseñanza visual, auditiva, kinestésica, entre otros.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- **Frontend:** Next.js, Tailwind CSS, HTML, CSS
+- **Backend:** Gemini AI
+- **Lenguaje:** TypeScript
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Requisitos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Node.js
+- Yarn o NPM
+
+## Instalación
+
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/soloyoloproXHD/Canacintra-H
+
+2. Ejecuta el comando:
+    ```bash
+    npm run dev
