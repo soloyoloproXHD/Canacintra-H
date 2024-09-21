@@ -19,14 +19,14 @@ export default function HomeLayout({
 
   return (
     <html lang="es">
-      <body data-theme="cupcake" className="h-screen flex relative">
+      <body data-theme="cupcake" className="h-screen flex relative bg-white">
         {/* Contenedor para el sidebar y el contenido */}
         <div className={`flex flex-col w-full`}>
           <NavPath />
           <div className="flex flex-1">
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
             <div className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-52' : 'ml-0'}`}>
-              <div  className="p-4 animate__animated animate__fadeIn animate__delay-1s">
+              <div  className="p-4 animate__animated animate__fadeIn animate__delay-1s ">
                 {children}
               </div>
             </div>
