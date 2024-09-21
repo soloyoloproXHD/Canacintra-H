@@ -8,17 +8,22 @@ const Page = () => {
   const [tipoEnsenanza, setTipoEnsenanza] = useState('');
   const [tema, setTema] = useState('');
   const [observaciones, setObservaciones] = useState('');
-  const [output, setOutput] = useState('');
+  const [output, setOutput] = useState([]);  // Cambiado a array para almacenar actividades
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Define an asynchronous function to send POST request to our API
+  // Función para hacer la solicitud a la API
   const generatePlan = async () => {
+    console.log(materia, tipoEnsenanza, tema, observaciones);
     setLoading(true);
     setError('');
     try {
-      const prompt = `Crea un plan de clase para la materia ${materia}, tipo de enseñanza ${tipoEnsenanza}, tema ${tema}. Observaciones: ${observaciones}`;
-      
+      const prompt = `
+      Crea un plan de clase para la materia de ${materia}, 
+      enfocado a alumnos que posean la especialidad de aprendizaje siguiente: ${tipoEnsenanza} abordando el tema de ${tema}. Asegura una descripción detallada de las actividades. 
+      Además, toma en cuenta las siguientes observaciones proporcionadas por el profesor: ${observaciones}.
+      Esto debe de estar enfocado al nivel escolar primario.`;
+
       const response = await fetch('/api/generate', {
         method: 'POST',
         headers: {
@@ -28,9 +33,11 @@ const Page = () => {
       });
 
       const data = await response.json();
+      console.log(data)
 
       if (response.ok) {
-        setOutput(data.output);
+        setOutput(data);  // Asume que `data` es el JSON con las actividades
+        document.getElementById('my_modal_1').showModal();  // Abrir el modal automáticamente
       } else {
         setError(data.error || 'Ocurrió un error desconocido.');
       }
@@ -43,9 +50,10 @@ const Page = () => {
   };
 
   return (
-    <section className="text-gray-600 body-font bg-white min-h-screen flex flex-col justify-center">
-      <div className="container px-5 my-2 mx-auto">
-        <div className="flex flex-col text-center w-full mb-5">
+    <section className="text-gray-600 body-font flex flex-col justify-center overflow-y-hidden">
+      <div className="container px-5 my-2 mx-auto ">
+        {/* Información del formulario */}
+        <div className="flex flex-col text-center mb-5">
           <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">PLANEACIÓN EDUCATIVA</h2>
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Ayuda a tu planeación de clases</h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
@@ -75,6 +83,28 @@ const Page = () => {
                 <FontAwesomeIcon icon={faCircleInfo} className="ml-2 text-gray-500" />
               </div>
             </label>
+
+            {/* <div className='flex justify-center items-center gap-2'>
+              <div className="form-control items-center">
+                <label className="label cursor-pointer gap-2">
+                  <span className="label-text">Remember me</span>
+                  <input type="checkbox" defaultChecked className="checkbox" />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <span className="label-text">Remember me</span>
+                  <input type="checkbox" defaultChecked className="checkbox" />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <span className="label-text">Remember me</span>
+                  <input type="checkbox" defaultChecked className="checkbox" />
+                </label>
+              </div>
+            </div> */}
+
             <select className="select select-primary w-full" value={tipoEnsenanza} onChange={(e) => setTipoEnsenanza(e.target.value)}>
               <option disabled>Elige una opción</option>
               <option>Visual</option>
@@ -117,30 +147,74 @@ const Page = () => {
         {/* Botón de generar */}
         <div className="mt-2">
           <button onClick={generatePlan} className="mx-auto flex overflow-hidden items-center text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-l500 disabled:pointer-events-none disabled:opacity-50 bg-l500 text-white shadow hover:bg-l600 h-9 px-4 py-2 max-w-52 whitespace-pre md:flex group relative w-full justify-center gap-2">
-            <span className="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 bg-white opacity-10 transition-all duration-1000 ease-out group-hover:-translate-x-40"></span>
-            <div className="ml-2 flex items-center gap-1 text-sm md:flex">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
-              </svg>
-              <div className="flex items-center">
-                <span className="ml-1 text-white">Generar</span>
-              </div>
-            </div>
+            Generar plan
           </button>
         </div>
 
-        {/* Mostrar resultado */}
-        {loading && <p className="text-gray-700">Generando...</p>}
-        {error && <p className="text-red-500">{error}</p>}
-        {output && (
-          <div className="mt-4 p-4 border rounded-md border-gray-300">
-            <h3 className="font-medium text-lg">Plan de Clase Generado:</h3>
-            <p className="text-gray-700">{output}</p>
+        {/* Modal */}
+        <dialog id="my_modal_1" className="modal">
+          <form method="dialog" className="modal-box">
+            <h3 className="font-bold text-lg">Plan de clase generado</h3>
+
+            {/* Generar tarjetas para cada actividad */}
+            <div className="py-4 space-y-4">
+              {output.map((actividad, index) => (
+                <div key={index} className="card bg-gray-100 shadow-md rounded-md p-4">
+                  <h4 className="font-bold text-xl mb-2">{actividad.actividad}</h4>
+                  <p><strong>Descripción:</strong> {actividad.descripcion}</p>
+                  <p><strong>Estilo de Aprendizaje:</strong> {actividad.estilo}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="modal-action">
+              <button className="btn">Cerrar</button>
+            </div>
+          </form>
+        </dialog>
+
+        {/* Spinner */}
+
+
+        {loading &&
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <svg xmlns="http://www.w3.org/2000/svg" height="200px" width="200px" viewBox="0 0 200 200" className="pencil">
+              <defs>
+                <clipPath id="pencil-eraser">
+                  <rect height="30" width="30" ry="5" rx="5"></rect>
+                </clipPath>
+              </defs>
+              <circle transform="rotate(-113,100,100)" stroke-linecap="round" stroke-dashoffset="439.82" stroke-dasharray="439.82 439.82" stroke-width="2" stroke="currentColor" fill="none" r="70" className="pencil__stroke"></circle>
+              <g transform="translate(100,100)" className="pencil__rotate">
+                <g fill="none">
+                  <circle transform="rotate(-90)" stroke-dashoffset="402" stroke-dasharray="402.12 402.12" stroke-width="30" stroke="hsl(223,90%,50%)" r="64" className="pencil__body1"></circle>
+                  <circle transform="rotate(-90)" stroke-dashoffset="465" stroke-dasharray="464.96 464.96" stroke-width="10" stroke="hsl(223,90%,60%)" r="74" className="pencil__body2"></circle>
+                  <circle transform="rotate(-90)" stroke-dashoffset="339" stroke-dasharray="339.29 339.29" stroke-width="10" stroke="hsl(223,90%,40%)" r="54" className="pencil__body3"></circle>
+                </g>
+                <g transform="rotate(-90) translate(49,0)" className="pencil__eraser">
+                  <g className="pencil__eraser-skew">
+                    <rect height="30" width="30" ry="5" rx="5" fill="hsl(223,90%,70%)"></rect>
+                    <rect clip-path="url(#pencil-eraser)" height="30" width="5" fill="hsl(223,90%,60%)"></rect>
+                    <rect height="20" width="30" fill="hsl(223,10%,90%)"></rect>
+                    <rect height="20" width="15" fill="hsl(223,10%,70%)"></rect>
+                    <rect height="20" width="5" fill="hsl(223,10%,80%)"></rect>
+                    <rect height="2" width="30" y="6" fill="hsla(223,10%,10%,0.2)"></rect>
+                    <rect height="2" width="30" y="13" fill="hsla(223,10%,10%,0.2)"></rect>
+                  </g>
+                </g>
+                <g transform="rotate(-90) translate(49,-30)" className="pencil__point">
+                  <polygon points="15 0,30 30,0 30" fill="hsl(33,90%,70%)"></polygon>
+                  <polygon points="15 0,6 30,0 30" fill="hsl(33,90%,50%)"></polygon>
+                  <polygon points="15 0,20 10,10 10" fill="hsl(223,10%,10%)"></polygon>
+                </g>
+              </g>
+            </svg>
           </div>
-        )}
+        }
+        {error && <p className="text-red-500">{error}</p>}
       </div>
     </section>
   );
-}
+};
 
 export default Page;
