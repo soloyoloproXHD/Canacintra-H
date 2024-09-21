@@ -1,0 +1,77 @@
+/* From Uiverse.io by vinodjangid07 */ 
+.loader {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  --book-color: #f1775b;
+  --book-cover-color: #506c86;
+}
+.book {
+  width: 150px;
+  height: 13px;
+  background-color: var(--book-color);
+  border-bottom: 2px solid var(--book-cover-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: relative;
+}
+.page {
+  width: 50%;
+  height: 2px;
+  background-color: var(--book-color);
+  -webkit-animation: paging 0.7s ease-out infinite;
+  animation: paging 0.7s ease-out infinite;
+  -webkit-transform-origin: left;
+  -ms-transform-origin: left;
+  transform-origin: left;
+}
+.page2 {
+  width: 50%;
+  height: 2px;
+  background-color: var(--book-color);
+  -webkit-animation: paging 0.8s ease-out infinite;
+  animation: paging 0.8s ease-out infinite;
+  -webkit-transform-origin: left;
+  -ms-transform-origin: left;
+  transform-origin: left;
+  position: absolute;
+}
+@-webkit-keyframes paging {
+  10% {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(-180deg);
+    transform: rotateZ(-180deg);
+  }
+}
+@keyframes paging {
+  10% {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(-180deg);
+    transform: rotateZ(-180deg);
+  }
+}
