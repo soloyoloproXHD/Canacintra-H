@@ -17,7 +17,11 @@ const Page = () => {
     setLoading(true);
     setError('');
     try {
-      const prompt = `Crea un plan de clase para la materia ${materia}, tipo de enseñanza ${tipoEnsenanza}, tema ${tema}. Observaciones: ${observaciones}`;
+      const prompt = `
+      Crea un plan de clase para la materia de ${materia}, 
+      enfocado a alumnos que poseean la especialidad de aprendizaje siguiente: ${tipoEnsenanza} abordando el tema de ${tema}. Asegura una descripción detallada de las actividades. 
+      Además toma en cuenta las siguientes observaciones proporcionadas por el profesor :${observaciones}.
+      Esto debe de estar enfocado al nivel escolar primario.`;
       
       const response = await fetch('/api/generate', {
         method: 'POST',
@@ -28,6 +32,7 @@ const Page = () => {
       });
 
       const data = await response.json();
+      console.log(data)
 
       if (response.ok) {
         setOutput(data.output);
