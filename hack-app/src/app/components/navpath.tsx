@@ -20,11 +20,11 @@ export default function NavPath() {
   return (
     <header>
       <div className="navbar rounded-br-full bg-lnav shadow-md">
-        <div className="flex-1 ml-16">
+        <div className="flex-1 ml-16" >
           <div className="w-10 rounded-full transition-all bg-l950">
             <Image src={logo} alt="" width={50} height={50} />
           </div>
-          <a className="btn btn-ghost text-xl text-l900">Adaptia</a>
+          <a className="ms-3 font-semibold text-xl text-l900 hover:font" href="/home">Adaptia</a>
         </div>
         <div className="flex-none gap-2 pr-12">
           <div className="dropdown dropdown-end">
