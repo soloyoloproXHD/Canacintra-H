@@ -7,7 +7,7 @@ import logo from "../content/Logo.png";
 export default function NavPath (){
   return (
         <header>
-          <div className="navbar rounded-br-full bg-lnav">
+          <div className="navbar rounded-br-full bg-lnav shadow-md">
             <div className="flex-1 ml-16">
               <div className="w-10 rounded-full transition-all bg-l950">
                   <Image src={logo} alt="" width={50} height={50}/>
@@ -44,7 +44,7 @@ export default function NavPath (){
                 </ul>
               </div>
               <div className="flex items-center justify-center">
-                <p className="text-center text-l950">Juan Pedro Pedraza Leal</p>
+                <p className="text-center text-l900 font-semibold hover: hover:text-l950">Juan Pedro Pedraza Leal</p>
               </div>
             </div>
           </div>
