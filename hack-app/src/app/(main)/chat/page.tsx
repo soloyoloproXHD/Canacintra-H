@@ -75,7 +75,7 @@ const page = () => {
             ></textarea>
           </div>
         </div>
-
+        
         {/* Botón de generar */}
         <div className="mt-2">
           <button className="mx-auto flex overflow-hidden items-center text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-l500 disabled:pointer-events-none disabled:opacity-50 bg-l500 text-white shadow hover:bg-l600 h-9 px-4 py-2 max-w-52 whitespace-pre md:flex group relative w-full justify-center gap-2 rounded-md transition-all duration-300 ease-out hover:ring-2 hover:ring-l500 hover:ring-offset-2">
@@ -90,6 +90,7 @@ const page = () => {
             </div>
           </button>
         </div>
+
       </div>
     </section>
   );
