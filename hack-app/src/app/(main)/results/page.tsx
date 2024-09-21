@@ -2,7 +2,7 @@ import React from 'react';
 
 const page = () => {
     return (
-        <div className='bg-white min-h-screen'>
+        <div className='min-h-screen justify-center'>
             <div className="grid grid-cols-6 grid-rows-6 gap-4 rounded-md h-full w-auto px-5 pt-3 pb-2 bg-white min-h-screen justify-center">
 
                 {/* Card 1 */}
@@ -26,14 +26,14 @@ const page = () => {
 
                 {/* Card 2 */}
                 <div className="col-span-3 row-span-3 col-start-4 shadow-md border border-gray-200 rounded-md hover:scale-[102%] transition duration-300 p-5 
-                bg-[#6EBF49] opacity-90">
+                bg-[#6EBF49] opacity-75">
                     {/* Título de la Card */}
                     <p className='text font-bold text-gray-800'>Recomendaciones</p>
                 </div>
 
                 {/* Card 3 */}
                 <div className="col-span-4 row-span-3 row-start-4 shadow-md border border-gray-300 rounded-md hover:scale-[102%] transition duration-300 p-5
-                bg-[#6EBF49] bg-opacity-90">
+                bg-[#6EBF49] bg-opacity-75">
                     {/* Título de la Card */}
                     <p className='text font-bold text-gray-800'>Puntos a cumplir</p>
                 </div>
