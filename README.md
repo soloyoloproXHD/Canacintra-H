@@ -38,6 +38,10 @@ La plataforma web utiliza IA para analizar los datos de los estudiantes y crear 
    ```bash
    git clone https://github.com/soloyoloproXHD/Canacintra-H
 
+3. Ejecuta el comando:
+    ```bash
+    npm i
+
 2. Ejecuta el comando:
     ```bash
     npm run dev
