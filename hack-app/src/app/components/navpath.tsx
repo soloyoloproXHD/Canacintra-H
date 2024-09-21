@@ -2,7 +2,8 @@
 import "../globals.css";
 import Image from "next/image";
 import logo from "../content/Logo.png";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleUser, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 
 export default function NavPath (){
   return (
@@ -15,13 +16,11 @@ export default function NavPath (){
               <a className="btn btn-ghost text-xl text-l900">Adaptia</a>
             </div>
             <div className="flex-none gap-2 pr-12">
-              
-              <div className="dropdown dropdown-end">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-circle avatar"
-                >
+              <div className="hidden sm:block items-center justify-center">
+                <p className="text-center text-l900 font-semibold hover: hover:text-l950">Juan Pedro Pedraza Leal</p>
+              </div>
+              <div className="dropdown dropdown-end mr-5">
+                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full transition-all hover:ring-4 ring-l50">
                     <img
                       alt="Tailwind CSS Navbar component"
@@ -31,20 +30,16 @@ export default function NavPath (){
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow-xl"
                 >
                   <li>
-                    <a className="justify-between">
-                      Perfil
-                    </a>
+
+                    <a> <FontAwesomeIcon icon={faCircleUser} style={{color: "#0582e7",}} /> Perfil</a>
                   </li>
                   <li>
-                    <a>Cerrar Sesión</a>
+                    <a> <FontAwesomeIcon icon={faRightToBracket} style={{color: "#e8282e",}} /> Cerrar Sesión</a>
                   </li>
                 </ul>
-              </div>
-              <div className="flex items-center justify-center">
-                <p className="text-center text-l900 font-semibold hover: hover:text-l950">Juan Pedro Pedraza Leal</p>
               </div>
             </div>
           </div>
