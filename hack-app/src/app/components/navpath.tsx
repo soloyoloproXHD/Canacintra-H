@@ -7,7 +7,7 @@ import logo from "../content/Logo.png";
 export default function NavPath (){
   return (
         <header>
-          <div className="navbar rounded-br-full bg-lnav">
+          <div className="navbar rounded-br-full bg-lnav shadow-md">
             <div className="flex-1 ml-16">
               <div className="w-10 rounded-full transition-all bg-l950">
                   <Image src={logo} alt="" width={50} height={50}/>
