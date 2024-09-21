@@ -17,7 +17,6 @@ export default function HomeLayout({
     <html lang="es" >
       <body data-theme="cupcake" className="h-screen">
         <NavPath/>
-        
         {children}
       </body>
     </html>
