@@ -37,7 +37,6 @@ const mockdata = [
   ];
 
 export default function Home() {
-    // const theme = useMantineTheme();
     const features = mockdata.map((feature) => (
       <Card key={feature.title} shadow="md" radius="md" className="transition-transform transform hover:scale-105 shadow-lg shadow-gray-600 bg-l800" padding="xl">
         <feature.icon
@@ -47,7 +46,7 @@ export default function Home() {
         <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
           {feature.title}
         </Text>
-        <Text fz="sm" c="dimmed" mt="sm">
+        <Text fz="sm" className="text-l50" mt="sm">
           {feature.description}
         </Text>
       </Card>
@@ -66,7 +65,7 @@ export default function Home() {
           Juan Pedro Pedraza Leal
         </Title>
   
-        <Text c="dimmed" className="{classes.description}" ta="center" mt="md">
+        <Text c="dimmed" className={classes.description} ta="center" mt="md">
             Esta aplicación está enfocada a mejorar la forma de aprendizaje de sus alumnos y en la gestión de sus planeaciones.
         </Text>
   
