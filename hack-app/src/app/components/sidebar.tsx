@@ -12,9 +12,13 @@ interface SidebarProps {
 export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
   return (
     <div className="relative">
-      {/* Botón para abrir/cerrar el menú */}
-      <button onClick={toggleSidebar} className="btn bg-l600 z-10">
-        <FontAwesomeIcon icon={faBars} />
+      {/* Botón para abrir/cerrar el menú, modificado para parecer una burbuja flotante */}
+      <button
+        onClick={toggleSidebar}
+        className="fixed bottom-6 left-6 w-16 h-16 bg-l600 text-white z-10 rounded-full shadow-xl flex items-center justify-center hover:bg-l500 hover:scale-110 transition-all duration-300 ease-in-out"
+        style={{ boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)' }} // Efecto de sombra más profundo
+      >
+        <FontAwesomeIcon icon={faBars} size="lg" />
       </button>
 
       {/* Sidebar que aparece justo debajo del navbar */}
