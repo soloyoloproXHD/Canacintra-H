@@ -4,6 +4,7 @@ import "../globals.css";
 import "@mantine/core/styles.css";
 import NavPath from "../components/navpath";
 import Sidebar from "../components/sidebar";
+import 'animate.css';
 
 export default function HomeLayout({
   children,
@@ -25,7 +26,7 @@ export default function HomeLayout({
           <div className="flex flex-1">
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
             <div className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-52' : 'ml-0'}`}>
-              <div className="p-4">
+              <div  className="p-4 animate__animated animate__fadeIn animate__delay-1s">
                 {children}
               </div>
             </div>
