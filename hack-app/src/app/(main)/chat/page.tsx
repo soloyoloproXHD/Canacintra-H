@@ -12,7 +12,7 @@ const Page = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Define an asynchronous function to send POST request to our API
+  // Define la función asíncrona para hacer la solicitud a la API
   const generatePlan = async () => {
     setLoading(true);
     setError('');
@@ -31,6 +31,7 @@ const Page = () => {
 
       if (response.ok) {
         setOutput(data.output);
+        document.getElementById('my_modal_1').showModal();  // Abrir el modal automáticamente
       } else {
         setError(data.error || 'Ocurrió un error desconocido.');
       }
@@ -43,9 +44,9 @@ const Page = () => {
   };
 
   return (
-    <section className="text-gray-600 body-font bg-white min-h-screen flex flex-col justify-center">
-      <div className="container px-5 my-2 mx-auto">
-        <div className="flex flex-col text-center w-full mb-5">
+    <section className="text-gray-600 body-font flex flex-col justify-center overflow-y-hidden">
+      <div className="container px-5 my-2 mx-auto ">
+        <div className="flex flex-col text-center mb-5">
           <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">PLANEACIÓN EDUCATIVA</h2>
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Ayuda a tu planeación de clases</h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
@@ -120,27 +121,29 @@ const Page = () => {
             <span className="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 bg-white opacity-10 transition-all duration-1000 ease-out group-hover:-translate-x-40"></span>
             <div className="ml-2 flex items-center gap-1 text-sm md:flex">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"></path>
               </svg>
-              <div className="flex items-center">
-                <span className="ml-1 text-white">Generar</span>
-              </div>
+              Generar plan
             </div>
           </button>
         </div>
 
-        {/* Mostrar resultado */}
-        {loading && <p className="text-gray-700">Generando...</p>}
+        {/* Modal */}
+        <dialog id="my_modal_1" className="modal">
+          <form method="dialog" className="modal-box">
+            <h3 className="font-bold text-lg">Plan de clase generado</h3>
+            <p className="py-4">{output}</p>
+            <div className="modal-action">
+              <button className="btn">Cerrar</button>
+            </div>
+          </form>
+        </dialog>
+
+        {loading && <p>Cargando...</p>}
         {error && <p className="text-red-500">{error}</p>}
-        {output && (
-          <div className="mt-4 p-4 border rounded-md border-gray-300">
-            <h3 className="font-medium text-lg">Plan de Clase Generado:</h3>
-            <p className="text-gray-700">{output}</p>
-          </div>
-        )}
       </div>
     </section>
   );
-}
+};
 
 export default Page;
