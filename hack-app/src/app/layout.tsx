@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="es">
+      <body data-theme="cupcake" className="h-screen">
         {children}
       </body>
     </html>
