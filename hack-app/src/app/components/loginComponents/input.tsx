@@ -1,24 +1,18 @@
 'use cliente';
 import React from 'react';
-interface InputProps {
+import { FC } from 'react';
+
+interface InputFieldProps {
     type: string;
     placeholder: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    name: string;
+    icon: JSX.Element;
 }
 
-const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange, name }) => {
-    return (
-        <input
-            type={type}
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-            name={name}
-            className="input-field"
-        />
-    );
-};
+const InputField: FC<InputFieldProps> = ({ type, placeholder, icon }) => (
+    <label className="input input-bordered flex items-center gap-2 bg-white mx-6 mt-4">
+        {icon}
+        <input type={type} className="grow" placeholder={placeholder} />
+    </label>
+);
 
-export default Input;
+export default InputField;
