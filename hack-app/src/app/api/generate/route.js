@@ -1,7 +1,6 @@
 // Import `GoogleGenerative` from the package we installed earlier.
 import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 import { NextResponse } from "next/server";
-import { type } from "os";
 
 // Create an asynchronous function POST to handle POST 
 // request with parameters request and response.
