@@ -37,7 +37,7 @@ const Page = () => {
 
       if (response.ok) {
         setOutput(data);  // Asume que `data` es el JSON con las actividades
-        document.getElementById('my_modal_1').showModal();  // Abrir el modal automáticamente
+        // document.getElementById('my_modal_1').showModal();  // Abrir el modal automáticamente
       } else {
         setError(data.error || 'Ocurrió un error desconocido.');
       }
@@ -160,9 +160,9 @@ const Page = () => {
             <div className="py-4 space-y-4">
               {output.map((actividad, index) => (
                 <div key={index} className="card bg-gray-100 shadow-md rounded-md p-4">
-                  <h4 className="font-bold text-xl mb-2">{actividad.actividad}</h4>
+                  {/* <h4 className="font-bold text-xl mb-2">{actividad.actividad}</h4>
                   <p><strong>Descripción:</strong> {actividad.descripcion}</p>
-                  <p><strong>Estilo de Aprendizaje:</strong> {actividad.estilo}</p>
+                  <p><strong>Estilo de Aprendizaje:</strong> {actividad.estilo}</p> */}
                 </div>
               ))}
             </div>
