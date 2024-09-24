@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
+import logo from '../content/Logo-Adaptia_Morado.png';
+import Image from 'next/image';
 
 export default function Home() {
   const openModal = () => {
@@ -110,8 +112,11 @@ export default function Home() {
         </div>
 
 
+        <Image width={45} height={45} src={logo}  alt='image' className='z-30'/>
 
-        <div className="relative w-full h-full z-10">
+
+
+        <div className="relative w-full h-full z-10" >  
           <div className="absolute top-0 right-0 transform translate-x-[35rem] -translate-y-[55rem] rounded-full w-[70rem] h-40 bg-purple-400 -rotate-45">
           </div>
           <div className="absolute top-0 right-0 transform translate-x-[13rem] -translate-y-[55rem] rounded-full w-[40rem] h-10 bg-purple-400 -rotate-45">
